@@ -1,14 +1,17 @@
 from flask import Flask, send_from_directory, request
-import sqlite3, datetime, config, jinja2
+import sqlite3
+import datetime
+import jinja2
 
 app = Flask(__name__)
 
-fDir = './static/'
-db = config.dbPath()  # Path to db here
+fDir = '/app/static'
+db = "/database/database.db"
 
 
 @app.route('/')
 def index():
+    print("I should server", flush=True)
     return send_from_directory(fDir, 'index.html')
 
 
@@ -71,7 +74,3 @@ def getRIESENstring(muchgold):
 </body>
 </html>""")
     return template.render({'attrs': [muchgold]})
-
-
-if __name__ == '__main__':
-    app.run(port=8000)

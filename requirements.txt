@@ -1,4 +1,4 @@
 flask
 jinja2
-sqlite3
 datetime
+gunicorn
